@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.weatherapp.contactListing.ContactListActivity;
+
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TestViewActivity.class);
+                Intent intent = new Intent(MainActivity.this, ContactListActivity.class);
                 startActivity(intent);
             }
         });
