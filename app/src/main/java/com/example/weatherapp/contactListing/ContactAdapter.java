@@ -9,12 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.weatherapp.R;
+import com.example.weatherapp.database.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactViewHolder> {
 
-    ArrayList<Contact> contacts = new ArrayList<>();
+    List<User> contacts = new ArrayList<>();
 
     @NonNull
     @Override
@@ -35,10 +37,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ContactViewHolder holder, int position) {
-        Contact contact = contacts.get(position);
-        holder.nameTextView.setText(contact.getName());
-        holder.messageButton.setText(contact.isOnline() ? "Message" : "Offline");
-        holder.messageButton.setEnabled(contact.isOnline());
+        User contact = contacts.get(position);
+        holder.nameTextView.setText(contact.name);
+        holder.messageButton.setText(contact.isOnline ? "Message" : "Offline");
+        holder.messageButton.setEnabled(contact.isOnline);
     }
 
     @Override
@@ -46,7 +48,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactViewHolder> {
         return contacts.size();
     }
 
-    public void setContacts(ArrayList<Contact> nameList) {
+    public void setContacts(List<User> nameList) {
         contacts = nameList;
         notifyDataSetChanged();
     }

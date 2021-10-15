@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.weatherapp.R;
+import com.example.weatherapp.database.AppDatabase;
+import com.example.weatherapp.database.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ContactListActivity extends AppCompatActivity {
 
@@ -17,8 +20,10 @@ public class ContactListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_contact_list);
         RecyclerView rvContact = findViewById(R.id.rvContact);
 
+        List<User> users = AppDatabase.getDB(this).userDao().getAll();
+
         ContactAdapter contactAdapter = new ContactAdapter();
-        contactAdapter.setContacts(Contact.createContactsList(20));
+        contactAdapter.setContacts(users);
 
         rvContact.setAdapter(contactAdapter);
     }
