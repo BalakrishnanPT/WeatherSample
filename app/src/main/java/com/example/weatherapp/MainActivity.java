@@ -19,10 +19,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         EditText name = findViewById(R.id.etName);
         CheckBox isOnline = findViewById(R.id.isOnline);
 
         Button view = findViewById(R.id.button);
+
         UserDao dao = AppDatabase.getDB(this).userDao();
 
         view.setOnClickListener(new View.OnClickListener() {
